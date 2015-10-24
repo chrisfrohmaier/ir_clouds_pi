@@ -1,2 +1,2 @@
-# ir_clouds_pi
-A repository for the development of the Raspberry Pi cloud sensor.
+# IR Cloud Sensor 
+A respository for the development of a cloud sensor for the Uni of Southampton observatory. This is a project Theo and Chris will work on at the Yurt Coding V2 event hosted by Ben Oxley.
