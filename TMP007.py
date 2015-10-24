@@ -25,7 +25,8 @@
 import logging
 import time
 
-import Adafruit_GPIO.I2C as I2C
+#import Adafruit_GPIO.I2C as I2C
+import Adafruit_I2C as I2C
 
 # registers
 TMP007_VOBJ             = 0x00
