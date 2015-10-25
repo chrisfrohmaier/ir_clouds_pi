@@ -7,9 +7,9 @@ import RPi.GPIO as GPIO # always needed with RPi.GPIO
 from time import sleep  # pull in the sleep function from time module  
 from BMP085 import BMP085
 from TMP007 import TMP007
+import psycopg2
 
-import sqlite3
-conn = sqlite3.connect('ir_cloud.db')
+conn = psycopg2.connect(host='frohmaierdb.c8d7umbjrqmj.us-west-2.rds.amazonaws.com', port=5432, user='cf5g09', password='SotonRoof2015!!', database='B46Roof')
 cur=conn.cursor()
 tmp=TMP007()
 bmp=BMP085()
@@ -22,7 +22,9 @@ for i in range(0,5):
 	print 'Amb Temp: ', bmp.read_temperature()
 	print 'Pressure: ', bmp.read_pressure()
 	print 'Altitude: ', bmp.read_altitude()
-	#cur.execute("INSERT INTO nightlog VALUES ")
-	sleep(60)
+	cur.execute("INSERT INTO nightlog (ir_temp,amb_temp,pressure,die_temp,altitude,voltage) VALUES (%s,%s,%s,%s,%s%s) RETURNING imageid;")
+	ir_id=cur.fetchone()
+	print ir_id
+	sleep(10)
 
-print '-----'
+	print '-----'
