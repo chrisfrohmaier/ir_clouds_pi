@@ -10,16 +10,18 @@ from TMP007 import TMP007
 
 import sqlite3
 conn = sqlite3.connect('ir_cloud.db')
-
+cur=conn.cursor()
 tmp=TMP007()
 bmp=BMP085()
 
 for i in range(0,5):
+	cur.execute("INSERT INTO nightlog VALUES ")
 	print 'IR Temp: ', tmp.readObjTempC()
 	print 'Die Temp: ', tmp.readDieTempC()
 	print 'Voltage: ', tmp.readVoltage()
 	print 'Amb Temp: ', bmp.read_temperature()
 	print 'Pressure: ', bmp.read_pressure()
+	print 'Altitude: ', 
 	sleep(60)
 
 print '-----'
