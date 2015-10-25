@@ -22,7 +22,7 @@ for i in range(0,5):
 	print 'Amb Temp: ', bmp.read_temperature()
 	print 'Pressure: ', bmp.read_pressure()
 	print 'Altitude: ', bmp.read_altitude()
-	cur.execute("INSERT INTO nightlog (ir_temp,amb_temp,pressure,die_temp,altitude,voltage) VALUES (%s,%s,%s,%s,%s%s) RETURNING imageid;", (float(tmp.readObjTempC()),float(bmp.read_temperature()),float(bmp.read_pressure()),float(tmp.readDieTempC()),float(bmp.read_altitude()),float(tmp.readVoltage()),))
+	cur.execute("INSERT INTO nightlog (ir_temp,amb_temp,pressure,die_temp,altitude,voltage) VALUES (%s,%s,%s,%s,%s,%s) RETURNING imageid;", (float(tmp.readObjTempC()),float(bmp.read_temperature()),float(bmp.read_pressure()),float(tmp.readDieTempC()),float(bmp.read_altitude()),float(tmp.readVoltage()),))
 	ir_id=cur.fetchone()
 	print ir_id
 	sleep(10)
