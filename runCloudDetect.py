@@ -15,13 +15,14 @@ tmp=TMP007()
 bmp=BMP085()
 
 for i in range(0,5):
-	cur.execute("INSERT INTO nightlog VALUES ")
+
 	print 'IR Temp: ', tmp.readObjTempC()
 	print 'Die Temp: ', tmp.readDieTempC()
 	print 'Voltage: ', tmp.readVoltage()
 	print 'Amb Temp: ', bmp.read_temperature()
 	print 'Pressure: ', bmp.read_pressure()
-	print 'Altitude: ', 
+	print 'Altitude: ', bmp.read_altitude()
+	#cur.execute("INSERT INTO nightlog VALUES ")
 	sleep(60)
 
 print '-----'
