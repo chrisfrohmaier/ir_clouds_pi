@@ -12,7 +12,7 @@ import picamera
 
 camera = picamera.PiCamera()
 
-conn = psycopg2.connect(host='frohmaierdb.c8d7umbjrqmj.us-west-2.rds.amazonaws.com', port=5432, user='cf5g09', password='SotonRoof2015!!', database='B46Roof')
+conn = psycopg2.connect(host='frohmaierdb.c8d7umbjrqmj.us-west-2.rds.amazonaws.com', port=5432, user='cf5g09', password='', database='B46Roof')
 cur=conn.cursor()
 tmp=TMP007()
 bmp=BMP085()
